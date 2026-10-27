@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111827">
+<title>DSA 12-Week Tracker</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">PLACEMENT PREP</div>
+      <h1>DSA Tracker</h1>
+      <p>12 weeks • 141 problems • theory + practice</p>
+    </div>
+    <button id="notifyBtn" class="icon-btn" title="Enable notifications">🔔</button>
+  </header>
+
+  <main>
+    <section id="today" class="page active">
+      <div class="hero">
+        <div>
+          <span id="todayWeek" class="pill">Week 1</span>
+          <h2 id="todayTitle">Arrays</h2>
+          <p id="todaySubtitle">Today's focused DSA tasks</p>
+        </div>
+        <div class="progress-ring">
+          <strong id="todayPct">0%</strong><span>today</span>
+        </div>
+      </div>
+
+      <div class="reminder-card">
+        <div>
+          <b>⏰ Hourly reminders</b>
+          <p id="reminderText">From 12:00 PM until today's tasks are complete.</p>
+        </div>
+        <label class="switch"><input id="reminderToggle" type="checkbox" checked><span></span></label>
+      </div>
+
+      <div class="section-head">
+        <h3>Today's Tasks</h3><span id="todayCount"></span>
+      </div>
+      <div id="todayTasks" class="task-list"></div>
+
+      <div class="section-head">
+        <h3>Today's Theory</h3>
+      </div>
+      <article id="theoryCard" class="theory-card"></article>
+    </section>
+
+    <section id="weeks" class="page">
+      <div class="page-title"><h2>12-Week Plan</h2><p>Open any week to study theory and problems.</p></div>
+      <div id="weekGrid" class="week-grid"></div>
+    </section>
+
+    <section id="assessments" class="page">
+      <div class="page-title"><h2>Weekly Assessment & Mock Interview</h2><p>At the end of each week, test your understanding before moving on.</p></div>
+      <div class="settings-card assessment-picker">
+        <label>Choose week
+          <select id="assessmentWeek"></select>
+        </label>
+        <p class="small">Suggested routine: 20 minutes for the quiz, 30–45 minutes for the coding task, then 10–15 minutes answering the interview questions aloud without notes.</p>
+      </div>
+      <div id="assessmentContent"></div>
+    </section>
+
+    <section id="progress" class="page">
+      <div class="page-title"><h2>Your Progress</h2><p>Keep going — consistency matters more than speed.</p></div>
+      <div class="stats">
+        <div><strong id="totalSolved">0</strong><span>/ 141 solved</span></div>
+        <div><strong id="streak">0</strong><span>day streak 🔥</span></div>
+        <div><strong id="overallPct">0%</strong><span>overall</span></div>
+      </div>
+      <div id="progressList" class="progress-list"></div>
+    </section>
+
+    <section id="notes" class="page">
+      <div class="page-title"><h2>Mistakes & Notes</h2><p>Save patterns, mistakes and things you need to revise.</p></div>
+      <div id="notesList" class="notes-list"></div>
+    </section>
+
+    <section id="settings" class="page">
+      <div class="page-title"><h2>Settings</h2><p>Your reminder window is intentionally simple.</p></div>
+      <div class="settings-card">
+        <label>Reminder starts <input id="startTime" type="time" value="12:00"></label>
+        <label>Reminder ends <input id="endTime" type="time" value="23:00"></label>
+        <label>Reminder interval
+          <select id="interval">
+            <option value="60">Every 1 hour</option>
+            <option value="30">Every 30 minutes</option>
+            <option value="120">Every 2 hours</option>
+          </select>
+        </label>
+        <button id="saveSettings" class="primary">Save reminder settings</button>
+        <p class="small">The browser must have notification permission for system notifications. The in-page reminder always works while this site is open.</p>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button data-page="today" class="active">🏠<span>Today</span></button>
+    <button data-page="weeks">📚<span>Weeks</span></button>
+    <button data-page="assessments">🧠<span>Assess</span></button>
+    <button data-page="progress">📊<span>Progress</span></button>
+    <button data-page="notes">📝<span>Notes</span></button>
+    <button data-page="settings">⚙️<span>Settings</span></button>
+  </nav>
+</div>
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
